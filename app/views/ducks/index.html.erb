@@ -1,14 +1,14 @@
 
 
 <h1>Listing ducks</h1>
+<%= link_to 'New Duck', new_duck_path %>
+<br><br><br>
 
 <table id="sortable" class="table" data-update_url="<%= sort_ducks_path %>">
   <thead>
     <tr>
       <th>Position</th>
       <th>Name</th>
-      <th></th>
-      <th></th>
       <th></th>
     </tr>
   </thead>
@@ -18,9 +18,11 @@
       <tr class="item" data-item_id="<%= duck.id %>">
         <td><%= duck.position %></td>
         <td><%= duck.name %></td>
-        <td><%= link_to 'Show', duck %></td>
-        <td><%= link_to 'Edit', edit_duck_path(duck) %></td>
-        <td><%= link_to 'Destroy', duck, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to 'Show', duck, class: "btn btn-primary" %>
+          <%= link_to 'Edit', edit_duck_path(duck), class: "btn btn-default" %>
+          <%= link_to 'Destroy', duck, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Duck', new_duck_path %>
+

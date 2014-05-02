@@ -42,7 +42,7 @@ class DucksController < ApplicationController
 
     respond_to do |format|
       if @duck.save
-        format.html { redirect_to @duck, notice: 'Duck was successfully created.' }
+        format.html { redirect_to ducks_path, notice: 'Duck was successfully created.' }
         format.json { render action: 'show', status: :created, location: @duck }
       else
         format.html { render action: 'new' }
@@ -57,7 +57,7 @@ class DucksController < ApplicationController
 
     respond_to do |format|
       if @duck.update(duck_params)
-        format.html { redirect_to @duck, notice: 'Duck was successfully updated.' }
+        format.html { redirect_to ducks_path, notice: 'Duck was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
